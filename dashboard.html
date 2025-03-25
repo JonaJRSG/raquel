@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdn.datatables.net/v/dt/dt-2.2.2/b-3.2.2/b-colvis-3.2.2/b-html5-3.2.2/r-3.0.4/sl-3.0.0/datatables.min.css" rel="stylesheet" integrity="sha384-KHFkHZjxSHYqiSJbGaTSymsx7JtunknXI3SkY9ripNiadJHls2Gaa3sXwPqmDohP" crossorigin="anonymous">
+</head>
+<body>
+    <main id="content">
+        <div class="meta-info">
+            <header>
+                <nav class="navbar">
+                    <nav class="navbar">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="./dashboard.html">
+                                <img src="./images/YourLogo.png" alt="Logo" width="90" height="72" class="d-inline-block align-text-top">
+                                Your Company
+                            </a>
+                        </div>
+                    </nav>
+                </nav>
+            </header>
+            <div class="options">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="human-factor.html"><button type="button" class="btn btn-bd-primary">Human factor</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <th><a href="./candidate-info.html?id=1">Jonathan</a></th>
+                        <th>23</th>
+                        <th>México</th>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <th><a href="./candidate-info.html?id=2">Maria</a></th>
+                        <th>28</th>
+                        <th>Argentina</th>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <th><a href="./candidate-info.html?id=3">Carlos</a></th>
+                        <th>30</th>
+                        <th>Colombia</th>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <th><a href="./candidate-info.html?id=4">Lucía</a></th>
+                        <th>25</th>
+                        <th>España</th>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <th><a href="./candidate-info.html?id=5">Pedro</a></th>
+                        <th>27</th>
+                        <th>Chile</th>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <th><a href="./candidate-info.html?id=6">Laura</a></th>
+                        <th>22</th>
+                        <th>Perú</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" integrity="sha384-VFQrHzqBh5qiJIU0uGU5CIW3+OWpdGGJM9LBnGbuIH2mkICcFZ7lPd/AAtI7SNf7" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" integrity="sha384-/RlQG9uf0M2vcTw3CX7fbqgbj/h8wKxw7C3zu9/GxcBPRKOEcESxaxufwRXqzq6n" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-2.2.2/b-3.2.2/b-colvis-3.2.2/b-html5-3.2.2/r-3.0.4/sl-3.0.0/datatables.min.js" integrity="sha384-hNfeXNKJ+cH2EmC7h2sDfFHlUST5BzNOE6dd0vd8WjUvYvPgCqM4clnnDFmv4SCA" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable({
+            scrollX: true,
+            select: true,
+            responsive: true,
+            layout: {
+                topStart: {
+                    buttons: [
+                        'copy', 'pdf'
+                    ]
+                }
+            }
+        });
+    } );
+</script>
+</body>
+</html>

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="./dashboard.html">
+                        <img src="./images/YourLogo.png" alt="Logo" width="60" height="48" class="d-inline-block align-text-top">
+                        Your Company
+                    </a>
+                </div>
+                <div class="options" style="width: 100vw; display: flex; ">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button onclick="location.replace('./graph.html');" type="button" class="btn btn-bd-primary">Graph</button>
+                        <button onclick="location.replace('./dashboard.html');" type="button" class="btn btn-bd-primary">Back</button>
+                    </div>
+                </div>
+            </nav>
+        </nav>
+    </header>
+    <div class="container mt-5">
+        <h2>Human Factor Evaluation</h2>
+        <p>Evaluate each of the following “human” job factors to reveal their relative importance in the performance of the job. Place the appropriate No. for each factor according to the following scale: </p>
+        <div style="display: flex; justify-content: space-between;">
+            <div>1  VERY LOW</div>
+            <div>2 - LOW</div>
+            <div>3 - SIGNIFICANT</div>
+            <div>4 - HIGH</div>
+            <div>5 - VERY HIGH</div>
+        </div>
+        <hr>
+        <form action="./backend/send-human-factor.php" method="POST">
+            <div class="row">
+                <!-- Columna 1 -->
+                <div class="col-md-4">
+                    <!-- Concentration on detail work -->
+                    <div class="mb-3">
+                        <label for="concentration" class="form-label">Concentration on detail work:</label>
+                        <select class="form-select" id="concentration" name="concentration">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to make unpopular decisions -->
+                    <div class="mb-3">
+                        <label for="unpopular_decisions" class="form-label">Ability to make unpopular decisions on tasks under his/her responsibility:</label>
+                        <select class="form-select" id="unpopular_decisions" name="unpopular_decisions">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Persistence to work continuously in routine work -->
+                    <div class="mb-3">
+                        <label for="persistence" class="form-label">Persistence to work continuously in routine work:</label>
+                        <select class="form-select" id="persistence" name="persistence">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to organize different types of people -->
+                    <div class="mb-3">
+                        <label for="organize_people_1" class="form-label">Ability to organize different types of people:</label>
+                        <select class="form-select" id="organize_people_1" name="organize_people_1">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Need to be diplomatic and cooperative -->
+                    <div class="mb-3">
+                        <label for="diplomatic_cooperative" class="form-label">Need to be diplomatic and cooperative:</label>
+                        <select class="form-select" id="diplomatic_cooperative" name="diplomatic_cooperative">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Unprecedented decision to act -->
+                    <div class="mb-3">
+                        <label for="unprecedented_decision" class="form-label">Unprecedented decision to act:</label>
+                        <select class="form-select" id="unprecedented_decision" name="unprecedented_decision">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Creativity to generate new ideas -->
+                    <div class="mb-3">
+                        <label for="creativity" class="form-label">Creativity to generate new ideas:</label>
+                        <select class="form-select" id="creativity" name="creativity">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to initiate relationships with strangers -->
+                    <div class="mb-3">
+                        <label for="initiate_relationships" class="form-label">Ability to initiate relationships with strangers:</label>
+                        <select class="form-select" id="initiate_relationships" name="initiate_relationships">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <!-- Columna 2 -->
+                <div class="col-md-4">
+                    <!-- Consistency to follow an established work pattern -->
+                    <div class="mb-3">
+                        <label for="consistency" class="form-label">Consistency to follow an established work pattern:</label>
+                        <select class="form-select" id="consistency" name="consistency">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Need to have the boss available for help -->
+                    <div class="mb-3">
+                        <label for="boss_available" class="form-label">Need to have the boss available for help:</label>
+                        <select class="form-select" id="boss_available" name="boss_available">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <!-- Confidence and command of the language to express fluently -->
+                    <div class="mb-3">
+                        <label for="confidence_language" class="form-label">Confidence and command of the language to express fluently:</label>
+                        <select class="form-select" id="confidence_language" name="confidence_language">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <!-- Ability to follow a system to perfection -->
+                    <div class="mb-3">
+                        <label for="follow_system" class="form-label">Ability to follow a system to perfection:</label>
+                        <select class="form-select" id="follow_system" name="follow_system">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <!-- Ability to resolve human conflicts -->
+                    <div class="mb-3">
+                        <label for="resolve_conflicts" class="form-label">Ability to resolve human conflicts:</label>
+                        <select class="form-select" id="resolve_conflicts" name="resolve_conflicts">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Need to remain in the same place of work -->
+                    <div class="mb-3">
+                        <label for="remain_same_place" class="form-label">Need to remain in the same place of work:</label>
+                        <select class="form-select" id="remain_same_place" name="remain_same_place">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <!-- Rhythm and coordination in repetitive work -->
+                    <div class="mb-3">
+                        <label for="rhythm_repetitive_work" class="form-label">Rhythm and coordination in repetitive work:</label>
+                        <select class="form-select" id="rhythm_repetitive_work" name="rhythm_repetitive_work">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <!-- Ability to cope with interruptions and changes during work -->
+                    <div class="mb-3">
+                        <label for="cope_with_interruptions" class="form-label">Ability to cope with interruptions and changes during work:</label>
+                        <select class="form-select" id="cope_with_interruptions" name="cope_with_interruptions">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <!-- Columna 3 -->
+                <div class="col-md-4">
+                    <!-- Ability to be cautious when calculating risks -->
+                    <div class="mb-3">
+                        <label for="cautious_calculate_risks" class="form-label">Be cautious when calculating risks:</label>
+                        <select class="form-select" id="cautious_calculate_risks" name="cautious_calculate_risks">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Motivational power to get people to act -->
+                    <div class="mb-3">
+                        <label for="motivational_power" class="form-label">Motivational power to get people to act:</label>
+                        <select class="form-select" id="motivational_power" name="motivational_power">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to overcome objections -->
+                    <div class="mb-3">
+                        <label for="overcome_objections" class="form-label">Ability to overcome objections:</label>
+                        <select class="form-select" id="overcome_objections" name="overcome_objections">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Vision to plan for the future on a large scale -->
+                    <div class="mb-3">
+                        <label for="vision_large_scale" class="form-label">Vision to plan for the future on a large scale:</label>
+                        <select class="form-select" id="vision_large_scale" name="vision_large_scale">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to persuade others to our point of view -->
+                    <div class="mb-3">
+                        <label for="persuade_others" class="form-label">Ability to persuade others to our point of view:</label>
+                        <select class="form-select" id="persuade_others" name="persuade_others">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Cautious in making decisions that may set a precedent -->
+                    <div class="mb-3">
+                        <label for="cautious_decisions" class="form-label">Cautious in making decisions that may set a precedent:</label>
+                        <select class="form-select" id="cautious_decisions" name="cautious_decisions">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Patience to follow detailed instructions -->
+                    <div class="mb-3">
+                        <label for="patience" class="form-label">Patience to follow detailed instructions:</label>
+                        <select class="form-select" id="patience" name="patience">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Satisfaction to keep up with the current position -->
+                    <div class="mb-3">
+                        <label for="satisfaction" class="form-label">Satisfaction to keep up with the current position:</label>
+                        <select class="form-select" id="satisfaction" name="satisfaction">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div style="width: 100%; display: flex; justify-content: flex-end;">
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-bd-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="container mt-5" style="display: none;">
+        <h2>Human Factor Evaluation</h2>
+        <form>
+            <div class="row">
+                <!-- Columna 1 -->
+                <div class="col-md-6">
+                    <!-- Concentration on detail work -->
+                    <div class="mb-3">
+                        <label for="concentration" class="form-label">Concentration on detail work:</label>
+                        <select class="form-select" id="concentration" name="concentration">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to make unpopular decisions -->
+                    <div class="mb-3">
+                        <label for="unpopular_decisions" class="form-label">Ability to make unpopular decisions on tasks under his/her responsibility:</label>
+                        <select class="form-select" id="unpopular_decisions" name="unpopular_decisions">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <hr style="padding: 10px;">
+    
+                    <!-- Persistence to work continuously in routine work -->
+                    <div class="mb-3">
+                        <label for="persistence" class="form-label">Persistence to work continuously in routine work:</label>
+                        <select class="form-select" id="persistence" name="persistence">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to organize different types of people -->
+                    <div class="mb-3">
+                        <label for="organize_people_1" class="form-label">Ability to organize different types of people:</label>
+                        <select class="form-select" id="organize_people_1" name="organize_people_1">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Need to be diplomatic and cooperative -->
+                    <div class="mb-3">
+                        <label for="diplomatic_cooperative" class="form-label">Need to be diplomatic and cooperative:</label>
+                        <select class="form-select" id="diplomatic_cooperative" name="diplomatic_cooperative">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Unprecedented decision to act -->
+                    <div class="mb-3">
+                        <label for="unprecedented_decision" class="form-label">Unprecedented decision to act:</label>
+                        <select class="form-select" id="unprecedented_decision" name="unprecedented_decision">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Creativity to generate new ideas -->
+                    <div class="mb-3">
+                        <label for="creativity" class="form-label">Creativity to generate new ideas:</label>
+                        <select class="form-select" id="creativity" name="creativity">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to initiate relationships with strangers -->
+                    <div class="mb-3">
+                        <label for="initiate_relationships" class="form-label">Ability to initiate relationships with strangers:</label>
+                        <select class="form-select" id="initiate_relationships" name="initiate_relationships">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Consistency to follow an established work pattern -->
+                    <div class="mb-3">
+                        <label for="consistency" class="form-label">Consistency to follow an established work pattern:</label>
+                        <select class="form-select" id="consistency" name="consistency">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Need to have the boss available for help -->
+                    <div class="mb-3">
+                        <label for="boss_available" class="form-label">Need to have the boss available for help:</label>
+                        <select class="form-select" id="boss_available" name="boss_available">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <!-- Confidence and command of the language to express fluently -->
+                    <div class="mb-3">
+                        <label for="confidence_language" class="form-label">Confidence and command of the language to express fluently:</label>
+                        <select class="form-select" id="confidence_language" name="confidence_language">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <!-- Ability to follow a system to perfection -->
+                    <div class="mb-3">
+                        <label for="follow_system" class="form-label">Ability to follow a system to perfection:</label>
+                        <select class="form-select" id="follow_system" name="follow_system">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <!-- Columna 2 -->
+                <div class="col-md-6">
+                    <!-- Ability to resolve human conflicts -->
+                    <div class="mb-3">
+                        <label for="resolve_conflicts" class="form-label">Ability to resolve human conflicts:</label>
+                        <select class="form-select" id="resolve_conflicts" name="resolve_conflicts">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Need to remain in the same place of work -->
+                    <div class="mb-3">
+                        <label for="remain_same_place" class="form-label">Need to remain in the same place of work:</label>
+                        <select class="form-select" id="remain_same_place" name="remain_same_place">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <!-- Rhythm and coordination in repetitive work -->
+                    <div class="mb-3">
+                        <label for="rhythm_repetitive_work" class="form-label">Rhythm and coordination in repetitive work:</label>
+                        <select class="form-select" id="rhythm_repetitive_work" name="rhythm_repetitive_work">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to cope with interruptions and changes during work -->
+                    <div class="mb-3">
+                        <label for="cope_with_interruptions" class="form-label">Ability to cope with interruptions and changes during work:</label>
+                        <select class="form-select" id="cope_with_interruptions" name="cope_with_interruptions">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+
+                    <hr style="padding: 10px;">
+    
+                    <!-- Ability to be cautious when calculating risks -->
+                    <div class="mb-3">
+                        <label for="cautious_calculate_risks" class="form-label">Be cautious when calculating risks:</label>
+                        <select class="form-select" id="cautious_calculate_risks" name="cautious_calculate_risks">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Motivational power to get people to act -->
+                    <div class="mb-3">
+                        <label for="motivational_power" class="form-label">Motivational power to get people to act:</label>
+                        <select class="form-select" id="motivational_power" name="motivational_power">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to overcome objections -->
+                    <div class="mb-3">
+                        <label for="overcome_objections" class="form-label">Ability to overcome objections:</label>
+                        <select class="form-select" id="overcome_objections" name="overcome_objections">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Vision to plan for the future on a large scale -->
+                    <div class="mb-3">
+                        <label for="vision_large_scale" class="form-label">Vision to plan for the future on a large scale:</label>
+                        <select class="form-select" id="vision_large_scale" name="vision_large_scale">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Ability to persuade others to our point of view -->
+                    <div class="mb-3">
+                        <label for="persuade_others" class="form-label">Ability to persuade others to our point of view:</label>
+                        <select class="form-select" id="persuade_others" name="persuade_others">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Cautious in making decisions that may set a precedent -->
+                    <div class="mb-3">
+                        <label for="cautious_decisions" class="form-label">Cautious in making decisions that may set a precedent:</label>
+                        <select class="form-select" id="cautious_decisions" name="cautious_decisions">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Patience to follow detailed instructions -->
+                    <div class="mb-3">
+                        <label for="patience" class="form-label">Patience to follow detailed instructions:</label>
+                        <select class="form-select" id="patience" name="patience">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <!-- Satisfaction to keep up with the current position -->
+                    <div class="mb-3">
+                        <label for="satisfaction" class="form-label">Satisfaction to keep up with the current position:</label>
+                        <select class="form-select" id="satisfaction" name="satisfaction">
+                            <option value="1">1 - VERY LOW</option>
+                            <option value="2">2 - LOW</option>
+                            <option value="3">3 - SIGNIFICANT</option>
+                            <option value="4">4 - HIGH</option>
+                            <option value="5">5 - VERY HIGH</option>
+                        </select>
+                    </div>
+    
+                    <div style="width: 100%; display: flex; justify-content: flex-end;">
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-bd-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    async function getData() {
+        // Aqui debes tener cuidado con el URL
+        //Con carpeta raquel
+        const url = 'http://localhost/raquel/backend/get-human-factor-form.php';
+        // Sin carpeta raquel
+        //const url = 'http://localhost/backend/get-human-factor-form.php';
+
+        try {
+            const response = await axios.get(url);
+            //console.log("Datos recibidos:", response.data);
+            return response.data; // Devuelve los datos correctamente
+        } catch (error) {
+            console.error("Error en la petición:", error);
+            return null; // Retorna null en caso de error
+        }
+    }
+
+    async function main() {
+        const data = await getData();
+        
+        for (let key in data) {
+            if ( key == "id") continue;
+
+            const element = document.getElementById(key);
+            if (element) {
+                element.value = data[key];
+            }
+        }
+    }
+
+    main();
+</script>
+</body>
+</html>

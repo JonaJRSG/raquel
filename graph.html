@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficas Test de Cleaver</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .chart-container {
+            height: 60%;
+            width: 30%;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div style="display: flex; justify-content: flex-end; padding: 20px;">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button onclick="location.replace('./human-factor.html');" type="button" class="btn btn-bd-primary">Back</button>
+            </div>
+        </div>
+        <h2 style="text-align:center;">Cleaver Test Charts</h2>
+    </div>
+    
+    <div class="chart-container">
+        <canvas id="graficoCleaver"></canvas>
+    </div>
+
+    <script>
+        async function getData() {
+            // Aqui debes tener cuidado con el URL
+            //Con carpeta raquel
+            const url = 'http://localhost/raquel/backend/get-human-factor.php';
+            // Sin carpeta raquel
+            //const url = 'http://localhost/backend/get-human-factor.php';
+
+            try {
+                const response = await axios.get(url);
+                //console.log("Datos recibidos:", response.data);
+                return response.data; // Devuelve los datos correctamente
+            } catch (error) {
+                console.error("Error en la petición:", error);
+                return null; // Retorna null en caso de error
+            }
+        }
+
+        async function main() {
+            const obj = await getData();
+            const valores = Object.values(obj)
+            const data = [50, ...valores.map(Number), 50];
+
+            const labels = ["", 'D', 'I', 'S', 'C', ""];
+
+            new Chart(document.getElementById("graficoCleaver"), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: "DISC",
+                            data: data,
+                            borderColor: "rgba(255, 99, 132, 1)",
+                            backgroundColor: "rgba(255, 99, 132, 0.2)",
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0,
+                            pointRadius: 3,
+                            yAxisID: 'y',
+                        },
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true, /* Esto mantiene la relación de aspecto */
+                    aspectRatio: 0.5, /* Ajusta el valor bajo para que la gráfica sea alta y delgada */
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    stacked: false,
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            min: 0,
+                            max: 99,
+                            ticks: {
+                                stepSize: 5,
+                                
+                            },
+                        },
+                    }
+                }
+            });
+        }
+        
+        main();
+    </script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
