@@ -14,6 +14,9 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
+// Posición
+$position = $_POST['position'];
+
 // Valores D
 $unpopular_decisions = $_POST['unpopular_decisions']; // D 4 - Habilidad para tomar decisiones impopulares
 $cope_with_interruptions = $_POST['cope_with_interruptions']; // D 1 - Capacidad para hacer frente a interrupciones y cambios
@@ -129,6 +132,7 @@ if ($C_final >= 0) {
 // Definir la consulta SQL para insertar los datos en la tabla 'human_factor'
 // CREATE TABLE human_factor_t (
 //     id INT AUTO_INCREMENT PRIMARY KEY,
+//     position VARCHAR(100),
 //     D_R INT,
 //     I_R INT,
 //     S_R INT,
@@ -150,6 +154,7 @@ if ($C_final >= 0) {
 // Definir la consulta SQL para insertar los datos en la tabla 'human_factor'
 // CREATE TABLE human_factor (
 //     id INT AUTO_INCREMENT PRIMARY KEY,
+//     position VARCHAR(100),
 //     concentration INT,
 //     unpopular_decisions INT,
 //     persistence INT,
@@ -178,13 +183,13 @@ if ($C_final >= 0) {
 
 // SQL query para insertar los datos en la tabla
 $sql = "INSERT INTO human_factor (
-    concentration, unpopular_decisions, persistence, organize_people_1, diplomatic_cooperative, 
+    position, concentration, unpopular_decisions, persistence, organize_people_1, diplomatic_cooperative, 
     unprecedented_decision, creativity, initiate_relationships, consistency, boss_available, 
     confidence_language, follow_system, resolve_conflicts, remain_same_place, rhythm_repetitive_work, 
     cope_with_interruptions, cautious_calculate_risks, motivational_power, overcome_objections, 
     vision_large_scale, persuade_others, cautious_decisions, patience, satisfaction
 ) VALUES (
-    '$concentration', '$unpopular_decisions', '$persistence', '$organize_people_1', '$diplomatic_cooperative',
+    '$position', '$concentration', '$unpopular_decisions', '$persistence', '$organize_people_1', '$diplomatic_cooperative',
     '$unprecedented_decision', '$creativity', '$initiate_relationships', '$consistency', '$boss_available',
     '$confidence_language', '$follow_system', '$resolve_conflicts', '$remain_same_place', '$rhythm_repetitive_work',
     '$cope_with_interruptions', '$cautious_calculate_risks', '$motivational_power', '$overcome_objections',
@@ -199,12 +204,12 @@ if ($conn->query($sql) !== TRUE) {
 
 // SQL query para insertar los datos en la tabla
 $sql = "INSERT INTO human_factor_t (
-    D_R, I_R, S_R, C_R, R, A, 
+    position, D_R, I_R, S_R, C_R, R, A, 
     D_D, I_D, S_D, C_D, 
     D_percent, 
     D_final, I_final, S_final, C_final
 ) VALUES (
-    '$D_R', '$I_R', '$S_R', '$C_R', '$R', '$A', 
+    '$position', '$D_R', '$I_R', '$S_R', '$C_R', '$R', '$A', 
     '$D_D', '$I_D', '$S_D', '$C_D', 
     '$D_percent', 
     '$D_final', '$I_final', '$S_final', '$C_final'

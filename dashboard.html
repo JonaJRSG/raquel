@@ -35,6 +35,9 @@
                 </div>
             </div>
         </div>
+        <div style="display: flex; justify-content: center; padding: 2rem;">
+            <h1 id="position" style="color: gray;"></h1>
+        </div>
         <div class="info">
             <table id="table">
                 
@@ -125,7 +128,7 @@
                             return (
                                 [
                                     candidate.id,
-                                    candidate.name,
+                                    //candidate.name,
                                     candidate.identification,
                                     candidate.city,
                                     deviation,
@@ -144,7 +147,7 @@
                         responsive: true,
                         columns: [
                             { title: 'Id', visible: false},
-                            { title: 'Name' },
+                            //{ title: 'Name' },
                             { title: 'Identification' },
                             { title: 'City' },
                             { title: "Deviation" },
@@ -187,6 +190,32 @@
             console.error('Hubo un error al hacer la petición:', error);
         }
     );
+</script>
+<script>
+    async function getData() {
+        // Aqui debes tener cuidado con el URL
+        //Con carpeta raquel
+        const url = 'http://localhost/raquel/backend/get-human-factor-form.php';
+        // Sin carpeta raquel
+        //const url = 'http://localhost/backend/get-human-factor-form.php';
+
+        try {
+            const response = await axios.get(url);
+            //console.log("Datos recibidos:", response.data);
+            return response.data; // Devuelve los datos correctamente
+        } catch (error) {
+            console.error("Error en la petición:", error);
+            return null; // Retorna null en caso de error
+        }
+    }
+
+    async function main() {
+        const data = await getData();
+        console.log(data)
+        document.getElementById("position").innerHTML = data.position || ""
+    }
+
+    main();
 </script>
 </body>
 </html>

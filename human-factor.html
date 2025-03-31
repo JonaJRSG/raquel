@@ -41,6 +41,11 @@
         </div>
         <hr>
         <form action="./backend/send-human-factor.php" method="POST">
+
+            <label for="position" style="font-size: 2rem;">Position</label>
+            <input type="text" name="position" id="position" class="form-control">
+            <hr>
+
             <div class="row">
                 <!-- Columna 1 -->
                 <div class="col-md-4">
@@ -679,6 +684,8 @@
 
     async function main() {
         const data = await getData();
+
+        document.getElementById("position").value = data.postion || ""
         
         for (let key in data) {
             if ( key == "id") continue;
