@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link href="https://cdn.datatables.net/v/dt/dt-2.2.2/b-3.2.2/b-colvis-3.2.2/b-html5-3.2.2/r-3.0.4/sl-3.0.0/datatables.min.css" rel="stylesheet" integrity="sha384-KHFkHZjxSHYqiSJbGaTSymsx7JtunknXI3SkY9ripNiadJHls2Gaa3sXwPqmDohP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <main id="content">
@@ -17,7 +21,7 @@
                 <nav class="navbar">
                     <nav class="navbar">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="./dashboard.html">
+                            <a class="navbar-hrand" href="./dashboard.html">
                                 <img src="./images/YourLogo.png" alt="Logo" width="90" height="72" class="d-inline-block align-text-top">
                                 Your Company
                             </a>
@@ -33,77 +37,156 @@
         </div>
         <div class="info">
             <table id="table">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>City</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th><a href="./candidate-info.html?id=1">Jonathan</a></th>
-                        <th>23</th>
-                        <th>México</th>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <th><a href="./candidate-info.html?id=2">Maria</a></th>
-                        <th>28</th>
-                        <th>Argentina</th>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <th><a href="./candidate-info.html?id=3">Carlos</a></th>
-                        <th>30</th>
-                        <th>Colombia</th>
-                    </tr>
-                    <tr>
-                        <th>4</th>
-                        <th><a href="./candidate-info.html?id=4">Lucía</a></th>
-                        <th>25</th>
-                        <th>España</th>
-                    </tr>
-                    <tr>
-                        <th>5</th>
-                        <th><a href="./candidate-info.html?id=5">Pedro</a></th>
-                        <th>27</th>
-                        <th>Chile</th>
-                    </tr>
-                    <tr>
-                        <th>6</th>
-                        <th><a href="./candidate-info.html?id=6">Laura</a></th>
-                        <th>22</th>
-                        <th>Perú</th>
-                    </tr>
-                </tbody>
+                
             </table>
         </div>
     </main>
+    <footer>
+        <div class="container__footer">
+            <div class="box__footer">
+                <div class="logo">
+                    <img src="Images/YourLogo.png" alt="">
+                </div>
+                <div class="terms">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit cum cumque velit libero officiis quam doloremque reprehenderit.</p>
+                </div>
+            </div>
+            <div class="box__footer">
+                <h2>Soluciones</h2>
+                <a href="https://www.google.com">App Desarrollo</a>
+                <a href="#">App Marketing</a>
+                <a href="#">IOS Desarrollo</a>
+                <a href="#">Android Desarrollo</a>
+            </div>
+
+            <div class="box__footer">
+                <h2>Compañia</h2>
+                <a href="#">Acerca de</a>
+                <a href="#">Trabajos</a>
+                <a href="#">Procesos</a>
+                <a href="#">Servicios</a>              
+            </div>
+
+            <div class="box__footer">
+                <h2>Redes Sociales</h2>
+                <a href="#"> <i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+
+        </div>
+
+        <div class="box__copyright">
+            <hr>
+            <p>Todos los derechos reservados © 2025</p>
+        </div>
+    </footer>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" integrity="sha384-VFQrHzqBh5qiJIU0uGU5CIW3+OWpdGGJM9LBnGbuIH2mkICcFZ7lPd/AAtI7SNf7" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" integrity="sha384-/RlQG9uf0M2vcTw3CX7fbqgbj/h8wKxw7C3zu9/GxcBPRKOEcESxaxufwRXqzq6n" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/v/dt/dt-2.2.2/b-3.2.2/b-colvis-3.2.2/b-html5-3.2.2/r-3.0.4/sl-3.0.0/datatables.min.js" integrity="sha384-hNfeXNKJ+cH2EmC7h2sDfFHlUST5BzNOE6dd0vd8WjUvYvPgCqM4clnnDFmv4SCA" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#table').DataTable({
-            scrollX: true,
-            select: true,
-            responsive: true,
-            layout: {
-                topStart: {
-                    buttons: [
-                        'copy', 'pdf'
-                    ]
-                }
-            }
-        });
-    } );
+
+    let dataCandidates = [];
+
+    // Hacer la petición GET a get-candidates-info.php
+    axios.get('./backend/get-candidates-info.php')
+        .then(response => {
+
+            axios.get("./backend/get-human-factor.php")
+                .then(responseHF => {
+                    try {
+                        //console.log(responseHF.data)
+
+                        let dataHF = responseHF.data
+
+                        let maxKey = Object.keys(dataHF).reduce((a, b) => dataHF[a] > dataHF[b] ? a : b);
+                        maxKey = maxKey.replace('_final', '')
+
+                        let minKey = Object.keys(dataHF).reduce((a, b) => dataHF[a] < dataHF[b] ? a : b);
+                        minKey = minKey.replace('_final', '')
+
+                        // Mapear los datos a un arreglo de arreglos
+                        dataCandidates = response.data.data.map(candidate => {
+                            let maxValue = candidate[maxKey];
+                            let minValue = candidate[minKey];
+
+                            let deviation = maxValue - minValue
+
+                            return (
+                                [
+                                    candidate.id,
+                                    candidate.name,
+                                    candidate.identification,
+                                    candidate.city,
+                                    deviation,
+                                    candidate.fecha
+                                ]
+                            )
+                        });
+                    } catch(error) {
+                        console.log("No hay datos")
+                    }
+                    
+                    // Inicializar DataTable después de obtener los datos
+                    const table = $('#table').DataTable({
+                        scrollX: true,
+                        select: true,
+                        responsive: true,
+                        columns: [
+                            { title: 'Id', visible: false},
+                            { title: 'Name' },
+                            { title: 'Identification' },
+                            { title: 'City' },
+                            { title: "Deviation" },
+                            { title: 'Date' },
+                        ],
+                        data: dataCandidates, // Pasar los datos obtenidos aquí
+                        layout: {
+                            top9Start: {
+                                buttons: [
+                                    'copy', 
+                                    { extend: 'print', messageTop: "This report contains all the candidates for the position"  },
+                                    {
+                                        extend: 'excelHtml5',
+                                        title: 'Candidates Report',
+                                        autoFilter: true,
+                                        exportOptions: {
+                                            columns: ':visible'
+                                        }
+                                    },
+                                ]
+                            }
+                        },
+                        language: {
+                            // url: 'https://cdn.datatables.net/plug-ins/2.2.2/i18n/es-MX.json'
+                        },
+                    });
+
+                    // Evento de clic en una fila
+                    $('#table tbody').on('click', 'tr', function() {
+                        const data = table.row(this).data(); // Obtiene los datos de la fila clickeada
+                        const id = data[0]; // Suponiendo que el ID es el primer valor en cada fila
+                        window.location.href = `candidate-info.html?id=${id}`; // Redirige a la otra página con el ID como parámetro
+                    });
+                })
+                .catch(error => {
+                    console.error('Hubo un error al hacer la petición:', error);
+                })
+        })
+        .catch(error => {
+            console.error('Hubo un error al hacer la petición:', error);
+        }
+    );
 </script>
 </body>
 </html>

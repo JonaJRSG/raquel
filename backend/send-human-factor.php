@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-// Nombre para crear la base de datos
+// Nomhre para crear la base de datos
 $dbname = "humanr";
 
 // Crear la conexión
@@ -215,7 +215,7 @@ if ($conn->query($sql) === TRUE) {
     echo "<script type='text/javascript'>alert('Data inserted successfully');</script>";
     echo "<script type='text/javascript'>window.location.href = '../human-factor.html';</script>";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<hr>" . $conn->error;
 }
 
 // Cerrar la conexión

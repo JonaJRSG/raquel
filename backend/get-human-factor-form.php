@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die(json_encode(["error" => "Error de conexión: " . $conn->connect_error]));
 }
 
-// Consulta SQL para obtener el último registro basado en el ID (ajusta el nombre de la columna de ID)
+// Consulta SQL para obtener el último registro basado en el ID (ajusta el nomhre de la columna de ID)
 $sql = "SELECT * FROM human_factor ORDER BY id DESC LIMIT 1";
 $result = $conn->query($sql);
 

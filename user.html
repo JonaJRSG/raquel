@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
+    <link rel="stylesheet" href="css/user.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="meta-info">
+        <header>
+            <nav class="navbar">
+                <nav class="navbar">
+                    <div class="container-fluid">
+                        <a class="navbar-hrand" href="./dashboard.html">
+                            <img src="./images/YourLogo.png" alt="Logo" width="90" height="72" class="d-inline-block align-text-top">
+                            Your Company
+                        </a>
+                    </div>
+                </nav>
+            </nav>
+        </header>
+        <div class="info">
+            <h3>Intrucciones.</h3>
+            <p>Las palabras descriptivas siguientes, se encuentran agrupadas en series de cuatro. Examine las palabras de cada serie. Seleccione la columna con M próxima a la palabra que en cada serie mejor lo describa. Seleccione la columna L junto a la palabra que en cada serie menos lo describa. Asegúrese de marcar SOLAMENTE UNA palabra bajo M SOLAMENTE UNA palabra bajo L en cada serie, de lo contrario la prueba se invalidará.</p>
+        </div>
+    </div>
+    <form id="main_form" action="">
+        <!----------Personal info--------------->
+        <div id="sec_1_med" class="section_full">
+            <div class="main_info_container">
+                <h4 class="">
+                    To begin, we need you to provide the following information:
+                </h4>
+                <div class="info_container">
+                    <div>
+                        <p class="">
+                            ID Number
+                        </p>
+                        <input id="identification" type="text" class="form-control" name="identification" placeholder="">
+                    </div>
+                    <div>
+                        <p class="">
+                            Full Name
+                        </p>
+                        <input id="name" type="text" class="form-control" name="name" placeholder="">
+                    </div>
+                    <div>
+                        <p class="">
+                            City
+                        </p>
+                        <input id="city" type="text" class="form-control" name="city" placeholder="">
+                    </div>
+                </div>
+                <div class="gender_container">
+                    <p>
+                        <input type="radio" id="male" name="gender" checked value="male">
+                        <label for="male">Male</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </p>
+                </div>
+                <p class="btn btn-bd-primary" onClick="firtst_step()">Continue</p>
+            </div>
+            <hr>
+        </div>
+
+		<!----------Questions--------------->
+		<div id="sec_2_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Persuasivo</p>
+                <input type="radio" name="opcion1_2" id="opcion1_2" option="persuasivo" value="I">
+                <input type="radio" name="opcion2_2" id="opcion2_2" option="persuasivo" value="NA">
+
+                <p>Gentil</p>
+                <input type="radio" name="opcion1_2" id="opcion1_2_2" option="gentil" value="S">
+                <input type="radio" name="opcion2_2" id="opcion2_2_2" option="gentil" value="S">
+
+                <p>Humilde</p>
+                <input type="radio" name="opcion1_2" id="opcion1_2_3" option="humilde" value="C">
+                <input type="radio" name="opcion2_2" id="opcion2_2_3" option="humilde" value="C">
+
+                <p>Original</p>
+                <input type="radio" name="opcion1_2" id="opcion1_2_4" option="original" value="NA">
+                <input type="radio" name="opcion2_2" id="opcion2_2_4" option="original" value="D">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(3)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_3_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Agresivo</p>
+                <input type="radio" name="opcion1_3" id="opcion1_3" option="agresivo" value="D">
+                <input type="radio" name="opcion2_3" id="opcion2_3" option="agresivo" value="NA">
+
+                <p>Alma de la fiesta</p>
+                <input type="radio" name="opcion1_3" id="opcion1_3_2" option="alma de la fiesta" value="I">
+                <input type="radio" name="opcion2_3" id="opcion2_3_2" option="alma de la fiesta" value="I">
+
+                <p>Comodin</p>
+                <input type="radio" name="opcion1_3" id="opcion1_3_3" option="comodin" value="S">
+                <input type="radio" name="opcion2_3" id="opcion2_3_3" option="comodin" value="S">
+
+                <p>Temeroso</p>
+                <input type="radio" name="opcion1_3" id="opcion1_3_4" option="temeroso" value="NA">
+                <input type="radio" name="opcion2_3" id="opcion2_3_4" option="temeroso" value="C">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(4)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_4_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Agradable</p>
+                <input type="radio" name="opcion1_4" id="opcion1_4" option="agradable" value="NA">
+                <input type="radio" name="opcion2_4" id="opcion2_4" option="agradable" value="S">
+
+                <p>Temeroso de dios</p>
+                <input type="radio" name="opcion1_4" id="opcion1_4_2" option="temeroso de dios" value="C">
+                <input type="radio" name="opcion2_4" id="opcion2_4_2" option="temeroso de dios" value="C">
+
+                <p>Tenaz</p>
+                <input type="radio" name="opcion1_4" id="opcion1_4_3" option="tenaz" value="D">
+                <input type="radio" name="opcion2_4" id="opcion2_4_3" option="tenaz" value="D">
+
+                <p>Atractivo</p>
+                <input type="radio" name="opcion1_4" id="opcion1_4_4" option="atractivo" value="I">
+                <input type="radio" name="opcion2_4" id="opcion2_4_4" option="atractivo" value="I">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(5)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_5_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Cauteloso</p>
+                <input type="radio" name="opcion1_5" id="opcion1_5" option="cauteloso" value="C">
+                <input type="radio" name="opcion2_5" id="opcion2_5" option="cauteloso" value="C">
+
+                <p>Determinado</p>
+                <input type="radio" name="opcion1_5" id="opcion1_5_2" option="determinado" value="D">
+                <input type="radio" name="opcion2_5" id="opcion2_5_2" option="determinado" value="Na">
+
+                <p>Convincente</p>
+                <input type="radio" name="opcion1_5" id="opcion1_5_3" option="convincente" value="I">
+                <input type="radio" name="opcion2_5" id="opcion2_5_3" option="convincente" value="I">
+
+                <p>Bonachon</p>
+                <input type="radio" name="opcion1_5" id="opcion1_5_4" option="bonachon" value="S">
+                <input type="radio" name="opcion2_5" id="opcion2_5_4" option="bonachon" value="NA">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(6)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_6_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Docil</p>
+                <input type="radio" name="opcion1_6" id="opcion1_6" option="docil" value="NA">
+                <input type="radio" name="opcion2_6" id="opcion2_6" option="docil" value="C">
+
+                <p>Atrevido</p>
+                <input type="radio" name="opcion1_6" id="opcion1_6_2" option="atrevido" value="D">
+                <input type="radio" name="opcion2_6" id="opcion2_6_2" option="atrevido" value="D">
+
+                <p>Leal</p>
+                <input type="radio" name="opcion1_6" id="opcion1_6_3" option="leal" value="S">
+                <input type="radio" name="opcion2_6" id="opcion2_6_3" option="leal" value="NA">
+
+                <p>Encantador</p>
+                <input type="radio" name="opcion1_6" id="opcion1_6_4" option="encantador" value="I">
+                <input type="radio" name="opcion2_6" id="opcion2_6_4" option="encantador" value="I">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(7)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_7_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Dispuesto</p>
+                <input type="radio" name="opcion1_7" id="opcion1_7" option="dispuesto" value="S">
+                <input type="radio" name="opcion2_7" id="opcion2_7" option="dispuesto" value="NA">
+
+                <p>Deseoso</p>
+                <input type="radio" name="opcion1_7" id="opcion1_7_2" option="deseoso" value="NA">
+                <input type="radio" name="opcion2_7" id="opcion2_7_2" option="deseoso" value="NA">
+
+                <p>Consecuente</p>
+                <input type="radio" name="opcion1_7" id="opcion1_7_3" option="consecuente" value="C">
+                <input type="radio" name="opcion2_7" id="opcion2_7_3" option="consecuente" value="C">
+
+                <p>Entusiasta</p>
+                <input type="radio" name="opcion1_7" id="opcion1_7_4" option="entusiasta" value="NA">
+                <input type="radio" name="opcion2_7" id="opcion2_7_4" option="entusiasta" value="D">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(8)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_8_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Fuerza de voluntad</p>
+                <input type="radio" name="opcion1_8" id="opcion1_8" option="fuerza de voluntad" value="NA">
+                <input type="radio" name="opcion2_8" id="opcion2_8" option="fuerza de voluntad" value="D">
+
+                <p>Mente abierta</p>
+                <input type="radio" name="opcion1_8" id="opcion1_8_2" option="mente abierta" value="C">
+                <input type="radio" name="opcion2_8" id="opcion2_8_2" option="mente abierta" value="Na">
+
+                <p>Complaciente</p>
+                <input type="radio" name="opcion1_8" id="opcion1_8_3" option="complaciente" value="S">
+                <input type="radio" name="opcion2_8" id="opcion2_8_3" option="complaciente" value="S">
+
+                <p>Animoso</p>
+                <input type="radio" name="opcion1_8" id="opcion1_8_4" option="animoso" value="I">
+                <input type="radio" name="opcion2_8" id="opcion2_8_4" option="animoso" value="I">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(9)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_9_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Confiado</p>
+                <input type="radio" name="opcion1_9" id="opcion1_9" option="confiado" value="I">
+                <input type="radio" name="opcion2_9" id="opcion2_9" option="confiado" value="NA">
+
+                <p>Simpatizador</p>
+                <input type="radio" name="opcion1_9" id="opcion1_9_2" option="simpatizador" value="NA">
+                <input type="radio" name="opcion2_9" id="opcion2_9_2" option="simpatizador" value="S">
+
+                <p>Tolerante</p>
+                <input type="radio" name="opcion1_9" id="opcion1_9_3" option="tolerante" value="NA">
+                <input type="radio" name="opcion2_9" id="opcion2_9_3" option="tolerante" value="C">
+
+                <p>Afirmativo</p>
+                <input type="radio" name="opcion1_9" id="opcion1_9_4" option="afirmativo" value="D">
+                <input type="radio" name="opcion2_9" id="opcion2_9_4" option="afirmativo" value="D">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(10)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_10_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Ecuanime</p>
+                <input type="radio" name="opcion1_10" id="opcion1_10" option="ecuanime" value="S">
+                <input type="radio" name="opcion2_10" id="opcion2_10" option="ecuanime" value="S">
+
+                <p>Preciso</p>
+                <input type="radio" name="opcion1_10" id="opcion1_10_2" option="preciso" value="C">
+                <input type="radio" name="opcion2_10" id="opcion2_10_2" option="preciso" value="C">
+
+                <p>Nervioso</p>
+                <input type="radio" name="opcion1_10" id="opcion1_10_3" option="nervioso" value="NA">
+                <input type="radio" name="opcion2_10" id="opcion2_10_3" option="nervioso" value="D">
+
+                <p>Jovial</p>
+                <input type="radio" name="opcion1_10" id="opcion1_10_4" option="jovial" value="NA">
+                <input type="radio" name="opcion2_10" id="opcion2_10_4" option="jovial" value="I">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(11)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_11_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Disciplinado</p>
+                <input type="radio" name="opcion1_11" id="opcion1_11" option="disiplinado" value="C">
+                <input type="radio" name="opcion2_11" id="opcion2_11" option="disiplinado" value="NA">
+
+                <p>Generoso</p>
+                <input type="radio" name="opcion1_11" id="opcion1_11_2" option="generoso" value="S">
+                <input type="radio" name="opcion2_11" id="opcion2_11_2" option="generoso" value="S">
+
+                <p>Animoso</p>
+                <input type="radio" name="opcion1_11" id="opcion1_11_3" option="animoso" value="NA">
+                <input type="radio" name="opcion2_11" id="opcion2_11_3" option="animoso" value="I">
+
+                <p>Persistente</p>
+                <input type="radio" name="opcion1_11" id="opcion1_11_4" option="persistente" value="D">
+                <input type="radio" name="opcion2_11" id="opcion2_11_4" option="persistente" value="D">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(12)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_12_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Competitivo</p>
+                <input type="radio" name="opcion1_12" id="opcion1_12" option="competiutivo" value="NA">
+                <input type="radio" name="opcion2_12" id="opcion2_12" option="competiutivo" value="D">
+
+                <p>Alegre</p>
+                <input type="radio" name="opcion1_12" id="opcion1_12_2" option="alegre" value="D">
+                <input type="radio" name="opcion2_12" id="opcion2_12_2" option="alegre" value="I">
+
+                <p>Considerado</p>
+                <input type="radio" name="opcion1_12" id="opcion1_12_3" option="considerado" value="NA">
+                <input type="radio" name="opcion2_12" id="opcion2_12_3" option="considerado" value="S">
+
+                <p>Armonioso</p>
+                <input type="radio" name="opcion1_12" id="opcion1_12_4" option="armonioso" value="S">
+                <input type="radio" name="opcion2_12" id="opcion2_12_4" option="armonioso" value="C">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(13)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_13_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Admirable</p>
+                <input type="radio" name="opcion1_13" id="opcion1_13" option="admirable" value="I">
+                <input type="radio" name="opcion2_13" id="opcion2_13" option="admirable" value="NA">
+
+                <p>Bondadoso</p>
+                <input type="radio" name="opcion1_13" id="opcion1_13_2" option="bondadoso" value="S">
+                <input type="radio" name="opcion2_13" id="opcion2_13_2" option="bondadoso" value="NA">
+
+                <p>Resignado</p>
+                <input type="radio" name="opcion1_13" id="opcion1_13_3" option="resignado" value="NA">
+                <input type="radio" name="opcion2_13" id="opcion2_13_3" option="resignado" value="C">
+
+                <p>Carácter firme</p>
+                <input type="radio" name="opcion1_13" id="opcion1_13_4" option="carácter firme" value="D">
+                <input type="radio" name="opcion2_13" id="opcion2_13_4" option="carácter firme" value="D">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(14)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_14_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Obediente</p>
+                <input type="radio" name="opcion1_14" id="opcion1_14" option="obediente" value="S">
+                <input type="radio" name="opcion2_14" id="opcion2_14" option="obediente" value="NA">
+
+                <p>Quisquilloso</p>
+                <input type="radio" name="opcion1_14" id="opcion1_14_2" option="quisquilloso" value="NA">
+                <input type="radio" name="opcion2_14" id="opcion2_14_2" option="quisquilloso" value="C">
+
+                <p>Inconquistable</p>
+                <input type="radio" name="opcion1_14" id="opcion1_14_3" option="inconquistable" value="D">
+                <input type="radio" name="opcion2_14" id="opcion2_14_3" option="inconquistable" value="D">
+
+                <p>Jugeton</p>
+                <input type="radio" name="opcion1_14" id="opcion1_14_4" option="jugeton" value="I">
+                <input type="radio" name="opcion2_14" id="opcion2_14_4" option="jugeton" value="I">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(15)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_15_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Respetuoso</p>
+                <input type="radio" name="opcion1_15" id="opcion1_15" option="respetuoso" value="C">
+                <input type="radio" name="opcion2_15" id="opcion2_15" option="respetuoso" value="NA">
+
+                <p>Emprendedor</p>
+                <input type="radio" name="opcion1_15" id="opcion1_15_2" option="emprendedor" value="D">
+                <input type="radio" name="opcion2_15" id="opcion2_15_2" option="emprendedor" value="D">
+
+                <p>Optimista</p>
+                <input type="radio" name="opcion1_15" id="opcion1_15_3" option="optimista" value="I">
+                <input type="radio" name="opcion2_15" id="opcion2_15_3" option="optimista" value="I">
+
+                <p>Servicial</p>
+                <input type="radio" name="opcion1_15" id="opcion1_15_4" option="servicial" value="S">
+                <input type="radio" name="opcion2_15" id="opcion2_15_4" option="servicial" value="S">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(16)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_16_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Valiente</p>
+                <input type="radio" name="opcion1_16" id="opcion1_16" option="valiente" value="D">
+                <input type="radio" name="opcion2_16" id="opcion2_16" option="valiente" value="NA">
+
+                <p>Inspirador</p>
+                <input type="radio" name="opcion1_16" id="opcion1_16_2" option="inspirador" value="I">
+                <input type="radio" name="opcion2_16" id="opcion2_16_2" option="inspirador" value="NA">
+
+                <p>Sumiso</p>
+                <input type="radio" name="opcion1_16" id="opcion1_16_3" option="sumiso" value="NA">
+                <input type="radio" name="opcion2_16" id="opcion2_16_3" option="sumiso" value="S">
+
+                <p>Timido</p>
+                <input type="radio" name="opcion1_16" id="opcion1_16_4" option="timido" value="NA">
+                <input type="radio" name="opcion2_16" id="opcion2_16_4" option="timido" value="C">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(17)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_17_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Adaptable</p>
+                <input type="radio" name="opcion1_17" id="opcion1_17" option="adaptable" value="C">
+                <input type="radio" name="opcion2_17" id="opcion2_17" option="adaptable" value="NA">
+
+                <p>Disputador</p>
+                <input type="radio" name="opcion1_17" id="opcion1_17_2" option="disputador" value="D">
+                <input type="radio" name="opcion2_17" id="opcion2_17_2" option="disputador" value="D">
+
+                <p>Indiferente</p>
+                <input type="radio" name="opcion1_17" id="opcion1_17_3" option="indiferente" value="NA">
+                <input type="radio" name="opcion2_17" id="opcion2_17_3" option="indiferente" value="S">
+
+                <p>Sangre liviana</p>
+                <input type="radio" name="opcion1_17" id="opcion1_17_4" option="sangre liviana" value="I">
+                <input type="radio" name="opcion2_17" id="opcion2_17_4" option="sangre liviana" value="I">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(18)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_18_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Amiguero</p>
+                <input type="radio" name="opcion1_18" id="opcion1_18" option="amiguero" value="I">
+                <input type="radio" name="opcion2_18" id="opcion2_18" option="amiguero" value="I">
+
+                <p>Paciente</p>
+                <input type="radio" name="opcion1_18" id="opcion1_18_2" option="paciente" value="S">
+                <input type="radio" name="opcion2_18" id="opcion2_18_2" option="paciente" value="S">
+
+                <p>Confianza en si mismo</p>
+                <input type="radio" name="opcion1_18" id="opcion1_18_3" option="confianza en si mismo" value="D">
+                <input type="radio" name="opcion2_18" id="opcion2_18_3" option="confianza en si mismo" value="D">
+
+                <p>Mesurado para hablar</p>
+                <input type="radio" name="opcion1_18" id="opcion1_18_4" option="mesurado para hablar" value="C">
+                <input type="radio" name="opcion2_18" id="opcion2_18_4" option="mesurado para hablar" value="NA">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(19)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_19_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Conforme</p>
+                <input type="radio" name="opcion1_19" id="opcion1_19" option="conforme" value="NA">
+                <input type="radio" name="opcion2_19" id="opcion2_19" option="conforme" value="S">
+
+                <p>Confiable</p>
+                <input type="radio" name="opcion1_19" id="opcion1_19_2" option="confiable" value="S">
+                <input type="radio" name="opcion2_19" id="opcion2_19_2" option="confiable" value="I">
+
+                <p>Pacifico</p>
+                <input type="radio" name="opcion1_19" id="opcion1_19_3" option="pacifico" value="C">
+                <input type="radio" name="opcion2_19" id="opcion2_19_3" option="pacifico" value="C">
+
+                <p>Positivo</p>
+                <input type="radio" name="opcion1_19" id="opcion1_19_4" option="positivo" value="D">
+                <input type="radio" name="opcion2_19" id="opcion2_19_4" option="positivo" value="D">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(20)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_20_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Aventurero</p>
+                <input type="radio" name="opcion1_20" id="opcion1_20" option="aventurero" value="D">
+                <input type="radio" name="opcion2_20" id="opcion2_20" option="aventurero" value="D">
+
+                <p>Receptivo</p>
+                <input type="radio" name="opcion1_20" id="opcion1_20_2" option="receptivo" value="C">
+                <input type="radio" name="opcion2_20" id="opcion2_20_2" option="receptivo" value="NA">
+
+                <p>Cordial</p>
+                <input type="radio" name="opcion1_20" id="opcion1_20_3" option="cordial" value="NA">
+                <input type="radio" name="opcion2_20" id="opcion2_20_3" option="cordial" value="I">
+
+                <p>Moderado</p>
+                <input type="radio" name="opcion1_20" id="opcion1_20_4" option="moderado" value="S">
+                <input type="radio" name="opcion2_20" id="opcion2_20_4" option="moderado" value="S">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(21)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_21_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Indulgente</p>
+                <input type="radio" name="opcion1_21" id="opcion1_21" option="indulgente" value="S">
+                <input type="radio" name="opcion2_21" id="opcion2_21" option="indulgente" value="S">
+
+                <p>Esteta</p>
+                <input type="radio" name="opcion1_21" id="opcion1_21_2" option="esteta" value="NA">
+                <input type="radio" name="opcion2_21" id="opcion2_21_2" option="esteta" value="C">
+
+                <p>Vigoroso</p>
+                <input type="radio" name="opcion1_21" id="opcion1_21_3" option="vigoroso" value="D">
+                <input type="radio" name="opcion2_21" id="opcion2_21_3" option="vigoroso" value="D">
+
+                <p>Sociable</p>
+                <input type="radio" name="opcion1_21" id="opcion1_21_4" option="sociable" value="I">
+                <input type="radio" name="opcion2_21" id="opcion2_21_4" option="sociable" value="I">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(22)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_22_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Parlanchin</p>
+                <input type="radio" name="opcion1_22" id="opcion1_22" option="parlanchin" value="I">
+                <input type="radio" name="opcion2_22" id="opcion2_22" option="parlanchin" value="I">
+
+                <p>Controlado</p>
+                <input type="radio" name="opcion1_22" id="opcion1_22_2" option="controlado" value="S">
+                <input type="radio" name="opcion2_22" id="opcion2_22_2" option="controlado" value="S">
+
+                <p>Convencional</p>
+                <input type="radio" name="opcion1_22" id="opcion1_22_3" option="convencional" value="NA">
+                <input type="radio" name="opcion2_22" id="opcion2_22_3" option="convencional" value="C">
+
+                <p>Decisivo</p>
+                <input type="radio" name="opcion1_22" id="opcion1_22_4" option="decisivo" value="D">
+                <input type="radio" name="opcion2_22" id="opcion2_22_4" option="decisivo" value="D">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(23)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_23_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Cohibido</p>
+                <input type="radio" name="opcion1_23" id="opcion1_23" option="cohibido" value="NA">
+                <input type="radio" name="opcion2_23" id="opcion2_23" option="cohibido" value="S">
+
+                <p>Exacto</p>
+                <input type="radio" name="opcion1_23" id="opcion1_23_2" option="exacto" value="C">
+                <input type="radio" name="opcion2_23" id="opcion2_23_2" option="exacto" value="NA">
+
+                <p>Franco</p>
+                <input type="radio" name="opcion1_23" id="opcion1_23_3" option="franco" value="D">
+                <input type="radio" name="opcion2_23" id="opcion2_23_3" option="franco" value="D">
+
+                <p>Buen comapañero</p>
+                <input type="radio" name="opcion1_23" id="opcion1_23_4" option="buen comapañero" value="I">
+                <input type="radio" name="opcion2_23" id="opcion2_23_4" option="buen comapañero" value="I">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(24)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_24_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Diplomatico</p>
+                <input type="radio" name="opcion1_24" id="opcion1_24" option="diplomatico" value="C">
+                <input type="radio" name="opcion2_24" id="opcion2_24" option="diplomatico" value="NA">
+
+                <p>Audaz</p>
+                <input type="radio" name="opcion1_24" id="opcion1_24_2" option="audaz" value="D">
+                <input type="radio" name="opcion2_24" id="opcion2_24_2" option="audaz" value="D">
+
+                <p>Refinado</p>
+                <input type="radio" name="opcion1_24" id="opcion1_24_3" option="refinado" value="NA">
+                <input type="radio" name="opcion2_24" id="opcion2_24_3" option="refinado" value="I">
+
+                <p>Satisfecho</p>
+                <input type="radio" name="opcion1_24" id="opcion1_24_4" option="satisfecho" value="S">
+                <input type="radio" name="opcion2_24" id="opcion2_24_4" option="satisfecho" value="S">
+            </div>
+            <p class="btn btn-bd-primary" onClick="next_step(25)">Continuar</p>
+            <hr>
+		</div>
+
+        <div id="sec_25_med" class="section_full hidden">
+			<div class="question_main_container">
+                <h4>Palabras</h4>
+                <h4>M</h4>
+                <h4>L</h4>
+
+                <p>Inquieto</p>
+                <input type="radio" name="opcion1_25" id="opcion1_25" option="inquieto" value="D">
+                <input type="radio" name="opcion2_25" id="opcion2_25" option="inquieto" value="D">
+
+                <p>Popular</p>
+                <input type="radio" name="opcion1_25" id="opcion1_25_2" option="popular" value="I">
+                <input type="radio" name="opcion2_25" id="opcion2_25_2" option="popular" value="I">
+
+                <p>Buen Vecino</p>
+                <input type="radio" name="opcion1_25" id="opcion1_25_3" option="buen vecino" value="S">
+                <input type="radio" name="opcion2_25" id="opcion2_25_3" option="buen vecino" value="S">
+
+                <p>Devoto</p>
+                <input type="radio" name="opcion1_25" id="opcion1_25_4" option="devoto" value="C">
+                <input type="radio" name="opcion2_25" id="opcion2_25_4" option="devoto" value="C">
+            </div>
+            <button type="submit" class="btn btn-bd-primary">Continuar</button>
+            <hr>
+		</div>
+
+    </form>
+    <footer>
+        <div class="container__footer">
+            <div class="box__footer">
+                <div class="logo">
+                    <img src="Images/YourLogo.png" alt="">
+                </div>
+                <div class="terms">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit cum cumque velit libero officiis quam doloremque reprehenderit.</p>
+                </div>
+            </div>
+            <div class="box__footer">
+                <h2>Soluciones</h2>
+                <a href="https://www.google.com">App Desarrollo</a>
+                <a href="#">App Marketing</a>
+                <a href="#">IOS Desarrollo</a>
+                <a href="#">Android Desarrollo</a>
+            </div>
+
+            <div class="box__footer">
+                <h2>Compañia</h2>
+                <a href="#">Acerca de</a>
+                <a href="#">Trabajos</a>
+                <a href="#">Procesos</a>
+                <a href="#">Servicios</a>              
+            </div>
+
+            <div class="box__footer">
+                <h2>Redes Sociales</h2>
+                <a href="#"> <i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+
+        </div>
+
+        <div class="box__copyright">
+            <hr>
+            <p>Todos los derechos reservados © 2025</p>
+        </div>
+    </footer>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    function firtst_step() {
+        name = document.getElementById('name').value
+        identification = document.getElementById('identification').value
+        city = document.getElementById('city').value
+
+        if (name == "" || identification == "" || city == "") {
+            alert("Please fill in all fields")
+        } else {
+            let partSig = document.getElementById('sec_2_med')
+            partSig.classList.remove('hidden');
+            partSig.scrollIntoView({ behavior: "smooth"})
+        }
+    }
+
+    function next_step(num) {
+        let option1 = document.querySelector(`input[name="opcion1_${num-1}"]:checked`)
+        let option2 = document.querySelector(`input[name="opcion2_${num-1}"]:checked`)
+		let partSig = document.getElementById(`sec_${num}_med`)
+		if (option1 == null || option2 == null) {
+            alert("Please select and option and make sure they are different")
+        } else {
+            let optionArg = option1.getAttribute('option')
+            let optionArg2 = option2.getAttribute('option')
+            if (optionArg == optionArg2) {
+                alert("Please select and option and make sure they are different")
+            } else {
+                partSig.classList.add('hidden')
+                let nextPart = document.getElementById(`sec_${num}_med`)
+                nextPart.classList.remove('hidden')
+                nextPart.scrollIntoView({ behavior: "smooth"})
+            }
+        }
+	}
+
+    let form = document.getElementById('main_form')
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault()
+
+        let name = document.getElementById("name").value
+        let identification = document.getElementById("identification").value
+        let city = document.getElementById("city").value
+        
+        let D_M = 0
+        let D_L = 0
+
+        let I_M = 0
+        let I_L = 0
+
+        let S_M = 0
+        let S_L = 0
+
+        let C_M = 0
+        let C_L = 0
+
+        let D = 0
+        let I = 0
+        let S = 0
+        let C = 0
+
+        for (let i=2; i<26; i++) {
+            let option1 = document.querySelector(`input[name="opcion1_${i}"]:checked`)
+            let option2 = document.querySelector(`input[name="opcion2_${i}"]:checked`)
+            if (option1 != null && option2 != null) {
+                let optionVal1 = option1.value
+                let optionVal2 = option2.value
+                if (optionVal1 == "D") {
+                    D_M++
+                } else if (optionVal1 == "I") {
+                    I_M++
+                } else if (optionVal1 == "S") {
+                    S_M++
+                } else if (optionVal1 == "C") {
+                    C_M++
+                }
+                if (optionVal2 == "D") {
+                    D_L++
+                } else if (optionVal2 == "I") {
+                    I_L++
+                } else if (optionVal2 == "S") {
+                    S_L++
+                } else if (optionVal2 == "C") {
+                    C_L++
+                }
+            }
+        }
+
+        D = D_M - D_L
+        I = I_M - I_L
+        S = S_M - S_L
+        C = C_M - C_L
+
+        let result = {
+            name: name,
+            identification: identification,
+            city: city,
+            D_M: D_M,
+            D_L: D_L,
+            I_M: I_M,
+            I_L: I_L,
+            S_M: S_M,
+            S_L: S_L,
+            C_M: C_M,
+            C_L: C_L,
+            D: D,
+            I: I,
+            S: S,
+            C: C
+        }
+
+        console.log(result)
+
+        // Enviar los datos a PHP usando axios
+        axios.post('./backend/send-candidate-info.php', result)
+        .then(response => {
+            console.log('Respuesta del servidor:', response.data); // Respuesta del servidor
+            window.location.href = "../raquel"
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error); // Manejo de errores
+        });
+    })
+</script>
+</body>
+</html>
